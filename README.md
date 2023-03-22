@@ -2,5 +2,5 @@
 
 - **.bashrc**
   ```bash
-  curl https://github.com/abhie-lp/termux-configs/blob/main/tmux.bashrc -o .bashrc && source .bashrc
+  curl https://raw.githubusercontent.com/abhie-lp/termux-configs/main/tmux.bashrc -o .bashrc && source .bashrc
   ```

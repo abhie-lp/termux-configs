@@ -29,6 +29,28 @@ adb_pair() {
   fi
 }
 
+function uninstall() {
+	echo "pm uninstall " $1
+	pm uninstall $1
+	echo "pm uninstall --user 0" $1
+	pm uninstall --user 0 $1
+}
+
+function disable() {
+	echo "pm disable-user --user 0" $1
+	pm disable-user --user 0 $1
+}
+
+function install() {
+  echo "cmd package install-existing" $1
+  cmd package install-existing $1
+}
+
+function enable() {
+    echo "pm enable --user 0" $1
+    pm enable --user 0 $1
+}
+
 alias ac=adb_connect
 alias ad="echo adb disconnect;adb disconnect"
 alias ak="echo adb kill-server;adb kill-server"

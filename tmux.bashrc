@@ -31,24 +31,29 @@ adb_pair() {
 
 function uninstall() {
 	echo "pm uninstall " $1
-	pm uninstall $1
+	sudo pm uninstall $1
 	echo "pm uninstall --user 0" $1
-	pm uninstall --user 0 $1
+	sudo pm uninstall --user 0 $1
 }
 
 function disable() {
 	echo "pm disable-user --user 0" $1
-	pm disable-user --user 0 $1
+	sudo pm disable-user --user 0 $1
 }
 
 function install() {
   echo "cmd package install-existing" $1
-  cmd package install-existing $1
+  sudo cmd package install-existing $1
 }
 
 function enable() {
     echo "pm enable --user 0" $1
-    pm enable --user 0 $1
+    sudo pm enable --user 0 $1
+}
+
+function ignore_wakelock() {
+    echo "cmd appops set" $1 "WAKE_LOCK ignore"
+    sudo cmd appops set $1 WAKE_LOCK ignore
 }
 
 alias ac=adb_connect
